@@ -1,10 +1,11 @@
-app.controller("enterCodeController", ["$rootScope", "$scope", "$q", "$timeout", "$log", "regService",
-    function ($rootScope, $scope, $q, $timeout, $log, regService) {
+app.controller("enterCodeController", ["$rootScope", "$scope", "$q", "$timeout", "$log", "$location", "regService",
+    function ($rootScope, $scope, $q, $timeout, $log, $location, regService) {
 
         $log.info("enterCodeController be loaded.");
 
         $scope.CODE_LENGTH = 7;
         $scope.code = "";
+        var setupCode = "0000123";
 
         //$rootScope.showPopupModal("Yo Dude!", 5000);
 
@@ -59,6 +60,15 @@ app.controller("enterCodeController", ["$rootScope", "$scope", "$q", "$timeout",
                 registered: false,
                 regFail: false
             };
-        }
+        };
+
+        $scope.skip = function() {
+            if ($scope.code === setupCode) {
+                $location.path('/setup');
+            }
+            else {
+                $location.path('/picker');
+            }
+        };
 
     }]);

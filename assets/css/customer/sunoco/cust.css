@@ -142,3 +142,20 @@ body {
     text-align: center;
 
 }
+
+.cust-input {
+    width:470px;
+    height:60px;
+    background:transparent;
+    border:2px solid white;
+    border-radius: 4px;
+    margin:15px;
+    padding:15px;
+    text-transform:none;
+    color:white;
+}
+
+.cust-input:focus {
+    box-shadow: 0 0 5px 3px #969696;
+    outline:none;
+}

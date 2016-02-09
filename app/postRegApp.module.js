@@ -1,13 +1,13 @@
 
 var app = angular.module('regApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate', 'ngToast', 'ngIdle',
-     'ngSanitize', 'ngTouch', 'appdWidgets', 'imageSpinner', 'toggle-switch', 'ngA8API2.service' ]);
+     'ngSanitize', 'ngTouch', 'appdWidgets', 'imageSpinner', 'toggle-switch', 'ngA8API2.service', 'userdefaults.service' ]);
 
 app.config(['IdleProvider', 'KeepaliveProvider', function(IdleProvider, KeepaliveProvider) {
     IdleProvider.idle(3*60);
     IdleProvider.timeout(1);
 }]);
 
-app.run(function($rootScope, $log, $http, $location, Idle, media, a8API ) {
+app.run(function($rootScope, $log, $http, $location, Idle, media, a8API, userDefaults) {
     $log.info("postreg app running...");
 
     Idle.watch();
@@ -37,6 +37,12 @@ app.run(function($rootScope, $log, $http, $location, Idle, media, a8API ) {
                 title: data.data.pageTitle
             };
 
+            var savedOrigin = userDefaults.getStringForKey("a8SiteOrigin", "");
+            if (savedOrigin) {
+                $rootScope.settings.a8SiteOrigin = savedOrigin;
+            }
+
+            $log.info("Setting a8 site origin to " + $rootScope.settings.a8SiteOrigin);
             a8API.setSiteOrigin($rootScope.settings.a8SiteOrigin);
             // do initial media load
             media.load();
