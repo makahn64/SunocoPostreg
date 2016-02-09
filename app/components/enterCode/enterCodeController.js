@@ -6,6 +6,8 @@ app.controller("enterCodeController", ["$rootScope", "$scope", "$q", "$timeout",
         $scope.CODE_LENGTH = 7;
         $scope.code = "";
 
+        //$rootScope.showPopupModal("Yo Dude!", 5000);
+
         $scope.ui = {
             msg: "If you are a Daytona Rewards member, enter your 7-digit code:",
             showNumpad: true,
