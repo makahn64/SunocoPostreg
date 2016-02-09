@@ -1,10 +1,22 @@
 
-var app = angular.module('regApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate', 'ngToast',
+var app = angular.module('regApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate', 'ngToast', 'ngIdle',
      'ngSanitize', 'ngTouch', 'appdWidgets', 'imageSpinner', 'toggle-switch', 'ngA8API2.service' ]);
 
+app.config(['IdleProvider', 'KeepaliveProvider', function(IdleProvider, KeepaliveProvider) {
+    IdleProvider.idle(3*60);
+    IdleProvider.timeout(1);
+}]);
 
-app.run(function($rootScope, $log, $http, media, a8API ) {
+app.run(function($rootScope, $log, $http, $location, Idle, media, a8API ) {
     $log.info("postreg app running...");
+
+    Idle.watch();
+
+    $rootScope.$on('IdleTimeout', function() {
+        $log.info('Session timeout, redirecting home.');
+        $location.path('/');
+        Idle.watch();
+    });
 
     // defaults in case JSON is messed up
     $rootScope.settings = {

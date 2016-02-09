@@ -34,6 +34,11 @@ app.config([ "$routeProvider", function($routeProvider) {
             controller: 'endSlateController'
         })
 
+        .when('/setup', {
+            templateUrl: 'app/components/setup/setup.partial.html',
+            controller: 'setupController'
+        })
+
         .otherwise({
             redirectTo: '/'
         });

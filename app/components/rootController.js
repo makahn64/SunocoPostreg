@@ -49,7 +49,7 @@ app.controller("rootController", ["$rootScope", "$location", "$timeout", "$filte
         $rootScope.setup = function () {
 
             if (setupTaps++ > 10)
-                window.location.assign("/setup");
+                $location.path("/setup");
 
             $timeout(function () {
                 setupTaps = 0;

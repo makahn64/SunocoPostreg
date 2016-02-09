@@ -29,6 +29,8 @@ app.controller("pickerController", ["$scope", "ngToast", "$q", "$timeout", "$log
 
         $scope.ui = { loading: true };
 
+        var preloaded = [];
+
 
         function slideOutToLeft() {
             $scope.slide.bkOut = true;
@@ -70,7 +72,7 @@ app.controller("pickerController", ["$scope", "ngToast", "$q", "$timeout", "$log
                 }
             );
 
-            var pages = Math.floor(media.getAll().length / $scope.layout.numPicsInPage) + 1;
+            var pages = Math.ceil(media.getAll().length / $scope.layout.numPicsInPage);
             for (var i = 0; i < pages; i++) {
                 $scope.pages.push(i);
             }
@@ -99,7 +101,6 @@ app.controller("pickerController", ["$scope", "ngToast", "$q", "$timeout", "$log
             );
         }
 
-        // I think the $q.defer pattern is unavoidable here...
         function preloadOne(src) {
             var deferred = $q.defer();
             var img = new Image();

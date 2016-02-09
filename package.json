@@ -5,8 +5,6 @@
   "description": "Register and pick your GIF!",
   "nodejs": true,
   "window": {
-    "title": "Sunoco Celebration Cam",
-    "kiosk": true,
-    "toolbar": false
+    "title": "Sunoco Celebration Cam"
   }
 }
