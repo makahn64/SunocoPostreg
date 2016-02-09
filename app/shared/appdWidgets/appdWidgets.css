@@ -1,0 +1,25 @@
+.appd-pager {
+
+    zzborder: 1px solid teal;
+    margin: 0 auto;
+    margin-top: 10px;
+    display: inline-block;
+
+}
+
+.appd-pager-dot {
+
+    font-size: 3em;
+    color: red;
+    display: inline-block;
+    opacity: 0.7;
+
+
+}
+
+.appd-pager-dot-selected {
+
+    text-shadow: 0px 0px 15px #ffffff;
+    opacity: 1.0;
+
+}

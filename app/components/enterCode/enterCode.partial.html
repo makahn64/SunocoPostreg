@@ -1,0 +1,61 @@
+<div class="surface-display">
+    <img class="page-background" ng-src="assets/img/customer/{{skin.customerFolder}}/background_entercode.jpg"/>
+
+    <div class="centered-msg">{{ui.msg}}</div>
+
+    <div class="centered-content">
+        <numblock>{{code[6]}}</numblock>
+        <numblock>{{code[5]}}</numblock>
+        <numblock>{{code[4]}}</numblock>
+        <numblock>{{code[3]}}</numblock>
+        <numblock>{{code[2]}}</numblock>
+        <numblock>{{code[1]}}</numblock>
+        <numblock>{{code[0]}}</numblock>
+    </div>
+
+    <div ng-show="ui.showNumpad">
+        <div class="numpad">
+            <numrow>
+                <button class="numpad-btn" ng-click="enterDigit('9')">9</button>
+                <button class="numpad-btn" ng-click="enterDigit('8')">8</button>
+                <button class="numpad-btn" ng-click="enterDigit('7')">7</button>
+            </numrow>
+            <br>
+            <numrow>
+                <button class="numpad-btn" ng-click="enterDigit('6')">6</button>
+                <button class="numpad-btn" ng-click="enterDigit('5')">5</button>
+                <button class="numpad-btn" ng-click="enterDigit('4')">4</button>
+            </numrow>
+            <br>
+            <numrow>
+                <button class="numpad-btn" ng-click="enterDigit('3')">3</button>
+                <button class="numpad-btn" ng-click="enterDigit('2')">2</button>
+                <button class="numpad-btn" ng-click="enterDigit('1')">1</button>
+            </numrow>
+            <numrow>
+                <button class="numpad-btn2x" ng-click="delete()">←</button>
+                <button class="numpad-btn" ng-click="enterDigit('0')">0</button>
+            </numrow>
+        </div>
+
+        <button class="left-btn" ng-click="goToPath('/picker')">Skip</button>
+        <button class="right-btn" ng-click="register()" ng-disabled="code.length < CODE_LENGTH">Register</button>
+    </div>
+
+    <div ng-show="ui.registered && !ui.showNumpad">
+        <div class="regbox">
+            Registration complete!<br>Is this {{user.firstName}}?
+        </div>
+        <button class="left-btn" ng-click="regFailure()">No</button>
+        <button class="right-btn" ng-click="goToPath('/picker')">Yes</button>
+    </div>
+
+    <div ng-show="ui.regFail && !ui.showNumpad">
+        <div class="regbox">
+            Registration failed!<br>Please re-enter the code.
+        </div>
+        <button class="left-btn" ng-click="goToPath('/picker')">Skip</button>
+        <button class="right-btn" ng-click="reEnter()">Re-Enter</button>
+    </div>
+
+</div>

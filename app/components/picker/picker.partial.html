@@ -1,0 +1,20 @@
+<div class="surface-display">
+    <img class="page-background" ng-src="assets/img/customer/{{skin.customerFolder}}/background_pickaphoto.jpg"/>
+
+    <div class="centered-msg">Select Your Video:</div>
+
+    <div class="photo-array-holder-background">
+        <div class="photo-array-loading-holder" ng-show="ui.loading">
+            <img src="assets/img/252.gif"/>
+            <!--<h2>Loading...</h2>-->
+        </div>
+        <div class="photo-array-holder-cust" ng-swipe-left="swipeLeft()" ng-swipe-right="swipeRight()"
+             ng-class="{ 'fwdPageIn': slide.fwdIn, 'fwdPageOut': slide.fwdOut, 'bkPageIn': slide.bkIn,
+        'bkPageOut': slide.bkOut, 'offscreen': slide.thinking }">
+            <div class="photo-holder" ng-repeat="p in pics">
+                <img class="img-cust" ng-src="{{p.downloadUrl}}" img-loader ng-click="picClicked(p)"/>
+            </div>
+        </div>
+    </div>
+
+</div>

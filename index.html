@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="regApp" ng-controller="rootController">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+    <script src="assets/bower_components/angular/angular.js"></script>
+    <script src="assets/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="assets/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="assets/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="assets/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <!--<script src="../shared/bower_components/angular-cookies/angular-cookies.js"></script>-->
+    <script src="assets/bower_components/angular-touch/angular-touch.js"></script>
+    <script src="assets/bower_components/ngToast/dist/ngToast.min.js"></script>
+    <script src="assets/bower_components/lodash/dist/lodash.js"></script>
+    <script src="assets/bower_components/angular-image-spinner/dist/angular-image-spinner.js"></script>
+    <script src="assets/bower_components/angular-toggle-switch/angular-toggle-switch.js"></script>
+
+
+    <script src="app/postRegApp.module.js"></script>
+    <script src="app/postRegApp.routes.js"></script>
+    <script src="app/components/rootController.js"></script>
+    <script src="app/components/register/registerController.js"></script>
+    <script src="app/components/enterCode/enterCodeController.js"></script>
+    <script src="app/components/picker/pickerController.js"></script>
+    <script src="app/components/approve/approveController.js"></script>
+    <script src="app/components/endSlate/endSlateController.js"></script>
+    <script src="app/shared/appdWidgets/appdWidgets.js"></script>
+    <script src="app/shared/commonFilters/commonFilters.js"></script>
+    <script src="app/shared/mediaService/mediaService.js"></script>
+    <script src="app/shared/regService/regService.js"></script>
+
+    <script src="app/shared/ngA8API/ngA8API2.js"></script>
+
+    <link href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/bower_components/animate.css/animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/bower_components/ngToast/dist/ngToast.min.css">
+    <link rel="stylesheet" href="app/shared/appdWidgets/appdWidgets.css">
+    <link rel="stylesheet" href="assets/bower_components/angular-toggle-switch/angular-toggle-switch-bootstrap.css">
+    <link rel="stylesheet" href="assets/bower_components/angular-toggle-switch/angular-toggle-switch.css">
+
+
+    <!-- <link href="assets/css/cfa-style-responsive.css" rel="stylesheet"> -->
+
+    <!-- <link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="assets/css/cfa-iphone.css" /> -->
+    <!--<link type="text/css" rel="stylesheet" media="only screen and (min-width : 769px)" href="assets/css/cfa-desktop.css" />
+  <link type="text/css" rel="stylesheet" media="only screen and (min-device-width: 768px) and (max-device-width: 1024px)" href="assets/css/cfa-ipad.css" /> -->
+    <!-- <link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="assets/css/cfa-iphone.css" /> -->
+    <!-- <link type="text/css" rel="stylesheet" media="only screen and (min-width : 769px)" href="assets/css/carnival-ipad.css" />
+    <link type="text/css" rel="stylesheet" media="only screen and (min-device-width: 768px) and (max-device-width: 1024px)" href="assets/css/carnival-ipad.css" />
+    -->
+    <link type="text/css" rel="stylesheet" href="assets/css/common.css">
+    <link type="text/css" rel="stylesheet" ng-href="assets/css/customer/{{skin.customerFolder}}/cust.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/common-animations.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/surface.css">
+
+    <title>{{skin.title}}</title>
+</head>
+<body>
+<div>
+    <ad-toast class="animate-show" ad-toast-message="modal.message" show-toast="modal.show"></ad-toast>
+    <!--<toast></toast>-->
+    <ng-view></ng-view>
+
+</div>
+</body>
+</html>

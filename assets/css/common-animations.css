@@ -1,0 +1,93 @@
+/* Animations */
+
+/* Only webkit for now. This should be fixed with mixins and SCSS later */
+
+
+.fwdPageIn {
+    ssborder: 2px solid pink;
+    -webkit-animation: slideInFromRight 1s;
+        -webkit-backface-visibility: hidden;
+
+}
+
+.fwdPageOut {
+    ssborder: 2px solid #e45cff;
+    -webkit-animation: slideOutToLeft 1s;
+
+}
+
+.bkPageIn {
+    ssborder: 2px solid #add8e6;
+    -webkit-animation: slideInFromLeft 1s;
+
+}
+
+.bkPageOut {
+    ssborder: 2px solid blue;
+    -webkit-animation: slideOutToRight 1s;
+
+}
+
+.offscreen {
+    -webkit-transform: translate3d( 3000px, 0, 0 );
+    border: 5px solid hotpink;
+    opactiy: 0;
+
+}
+
+
+/* forward page turn, inbound */
+@-webkit-keyframes slideInFromRight {
+    from { -webkit-transform: translate3d( 3000px, 0, 0 ); opacity: 0;}
+    to   { -webkit-transform: translate3d( 0, 0, 0 ); opacity: 1}
+}
+
+/* backward page turn, outbound */
+@-webkit-keyframes slideOutToRight {
+    from { -webkit-transform: translate3d( 0, 0, 0 ); opacity: 1;}
+    to   { -webkit-transform: translate3d( 3000px, 0, 0 ); opacity: 0; }
+}
+
+/* backward page turn, inbound */
+@-webkit-keyframes slideInFromLeft {
+    from { -webkit-transform: translate3d( -3000px, 0, 0 ); opacity: 0;}
+    to   { -webkit-transform: translate3d( 0, 0, 0 ); opacity: 1;}
+}
+
+/* forward page turn, outbound */
+@-webkit-keyframes slideOutToLeft {
+    from { -webkit-transform: translate3d( 0, 0, 0 ); opacity: 1;}
+    to   { -webkit-transform: translate3d( -3000px, 0, 0 ); opacity: 0;}
+}
+
+@-webkit-keyframes popOpen {
+    from {  -webkit-transform: scale(0);}
+    to { -webkit-transform: scale(1);}
+ }
+
+@-webkit-keyframes popClose {
+    from {  -webkit-transform: scale(1);}
+    to { -webkit-transform: scale(0);}
+ }
+
+
+.animate-show {
+    opacity: 1;
+    display: block; !important;
+}
+
+.animate-show.ng-hide-add.ng-hide-add-active,
+.animate-show.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: all linear 0.25s;
+  transition: all linear 0.25s;
+}
+
+.animate-show.ng-hide {
+  opacity: 0;
+  -webkit-animation: popClose 0.25s;
+}
+
+.animate-show.ng-hide-remove {
+  opacity: 1;
+  -webkit-animation: popOpen 0.25s;
+}

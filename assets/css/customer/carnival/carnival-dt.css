@@ -1,0 +1,280 @@
+@font-face {
+    font-family: carnival;
+    src: url('../../../fonts/customer/carnival/Nunito-Regular.ttf');
+}
+
+@font-face {
+    font-family: carnival-lt;
+    src: url('../../../fonts/customer/carnival/Nunito-Light.ttf');
+}
+
+
+html, body {
+    height: 384px;
+    width: 512px;
+    overflow: hidden;
+    font-family: carnival;
+}
+
+body {
+    background-color: #ffffff;
+    margin: 0px;
+    font-weight: 300;
+}
+
+
+h1, h2, h3, h4 {
+    font-weight: 500;
+}
+
+input {
+
+border-width: 0 0 0 0;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+display: none !important;
+}
+
+
+.tap-to-start-holder img {
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 512px;
+    height: 384px;
+}
+
+.page-background {
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+}
+
+.thumb {
+    width: 144px;
+    height: 144px;
+    margin-top: 0px;
+    margin-bottom: 16px;
+    margin-right: 14px;
+    margin-left: 0px;
+    webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.15);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.15);
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.15);
+}
+
+.photo-holder {
+    display: inline;
+    position: relative;
+}
+
+.label {
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    left: 28%;
+    top: 80px;
+    font-family: "Droid Sans", "Helvetica Neue", "Nimbus Sans L", sans-serif;
+        font-weight: 100;
+
+    opacity: 0.2;
+}
+
+.label:hover {
+    opacity: 1.0;
+
+}
+
+.photo-array-holder {
+    position: absolute;
+    top: 170px;
+    left: 115px;
+    aaborder: 2px solid red;
+    width: 900px;
+    height: 500px;
+
+}
+
+.approval-photo {
+    position: absolute;
+    width: 468px;
+    height: 468px;
+    top: 182px;
+    left: 280px;
+}
+
+.back-btn {
+    position: absolute;
+    top: 670px;
+    left: 620px;
+    width: 192px;
+    height: 85px;
+}
+
+.next-btn {
+    position: absolute;
+    top: 670px;
+    left: 810px;
+    width: 192px;
+    height: 85px;
+}
+
+.reg-fields {
+    position: absolute;
+    xxborder: 1px solid #ffff00;
+    top: 200px;
+    left: 300px;
+}
+
+.reg-fields input {
+    xxborder: 1px solid #f5f5f5;
+    background-color: #147abe;
+    xxbackground-color: rgba();
+    display: block;
+    width: 420px;
+    height: 50px;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    padding: 5px;
+    padding-left: 15px;
+
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #ffffff;
+}
+
+.spam-control {
+    margin-top: 20px;
+    line-height: 30px;
+}
+
+
+.spam-me {
+    color: white;
+    margin-left: 10px;
+    font-size: 1.1em;
+    font-family: carnival-lt;
+    margin-top: 5px;
+}
+/* COMMON */
+
+.grey {
+    background-color: #c5c6c8;
+}
+
+.grey:hover {
+    background-color: #919294;
+
+}
+
+
+.op50 {
+    opacity: 0.50;
+}
+
+.op30 {
+    opacity: 0.30;
+}
+
+/* Animations */
+
+.fwd-animation.ng-enter,
+.fwd-animation.ng-leave,
+.fwd-animation.ng-move {
+  -webkit-transition: all linear 0.5s;
+  -moz-transition: all linear 0.5s;
+  -o-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+  position:relative;
+}
+
+.fwd-animation.ng-enter {
+  -webkit-animation:0.5s bounceInRight;
+  -moz-animation:0.5s bounceInRight;
+  -o-animation:0.5s bounceInRight;
+  animation:0.5s bounceInRight;
+}
+
+.fwd-animation.ng-leave {
+  -webkit-animation:0.5s bounceOutLeft;
+  -moz-animation:0.5s bounceOutLeft;
+  -o-animation:0.5s bounceOutLeft;
+  animation:0.5s bounceOutLeft;
+
+}
+
+.fwd-animation.ng-move {
+  ssleft:2px;
+  opacity: 0.5;
+}
+.fwd-animation.ng-move.ng-move-active {
+  ssleft:0;
+  opacity: 1;
+    sstransform: rotateY(0deg);
+
+}
+
+.fwd-animation.ng-enter-stagger,
+.fwd-animation.ng-leave-stagger,
+.fwd-animation.ng-move-stagger {
+  /* 200ms will be applied between each sucessive enter operation */
+  -webkit-transition-delay:1.2s;
+  transition-delay:1.2s;
+
+  /* yes we still need to do this too */
+  -webkit-animation-duration:0;
+  animation-duration:0;
+}
+
+.bwd-animation.ng-enter,
+.bwd-animation.ng-leave,
+.bwd-animation.ng-move {
+  -webkit-transition: all linear 0.5s;
+  -moz-transition: all linear 0.5s;
+  -o-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+  position:relative;
+}
+
+.bwd-animation.ng-enter {
+  -webkit-animation:0.5s bounceInLeft;
+  -moz-animation:0.5s bounceInLeft;
+  -o-animation:0.5s bounceInLeft;
+  animation:0.5s bounceInLeft;
+}
+
+.bwd-animation.ng-leave {
+  -webkit-animation:0.5s bounceOutRight;
+  -moz-animation:0.5s bounceOutRight;
+  -o-animation:0.5s bounceOutRight;
+  animation:0.5s bounceOutRight;
+
+}
+
+.bwd-animation.ng-move {
+  ssleft:2px;
+  opacity: 0.5;
+}
+.bwd-animation.ng-move.ng-move-active {
+  ssleft:0;
+  opacity: 1;
+    sstransform: rotateY(0deg);
+
+}
+
+.bwd-animation.ng-enter-stagger,
+.bwd-animation.ng-leave-stagger,
+.bwd-animation.ng-move-stagger {
+  /* 200ms will be applied between each sucessive enter operation */
+  -webkit-transition-delay:1.2s;
+  transition-delay:1.2s;
+
+  /* yes we still need to do this too */
+  -webkit-animation-duration:0;
+  animation-duration:0;
+}

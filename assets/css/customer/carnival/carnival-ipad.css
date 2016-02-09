@@ -1,0 +1,312 @@
+@font-face {
+    font-family: carnival;
+    src: url('../../../fonts/customer/carnival/Nunito-Regular.ttf');
+}
+
+@font-face {
+    font-family: carnival-lt;
+    src: url('../../../fonts/customer/carnival/Nunito-Light.ttf');
+}
+
+html{
+  position:fixed;
+  width:100%;
+  height:100%;
+}
+
+
+body {
+    xxbackground-color: #ffffff;
+    background-image: url(../../../img/customer/carnival/background_blank.jpg);
+    margin: 0px;
+    font-weight: 300;
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
+    font-family: carnival-lt;
+    height: 100%;
+    overflow: hidden;
+
+}
+
+
+h1, h2, h3, h4 {
+    font-weight: 500;
+}
+
+input {
+border-width: 0 0 0 0;
+color: white;
+text-transform: uppercase;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+display: none !important;
+}
+
+.hidden-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+.page-background {
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 1024px;
+    height: 768px;
+}
+
+.thumb {
+    width: 144px;
+    height: 144px;
+    margin-top: 0px;
+    margin-bottom: 16px;
+    margin-right: 14px;
+    margin-left: 0px;
+    xxwebkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.15);
+    xx-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.15);
+    xxbox-shadow: 2px 2px 5px 0px rgba(0,0,0,0.15);
+    ssborder: 4px solid orange;
+
+}
+
+.deep-shadow {
+
+    webkit-box-shadow: 4px 4px 8px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(0,0,0,0.35);
+    box-shadow: 4px 4px 8px 0px rgba(0,0,0,0.35);
+}
+
+.photo-holder {
+    display: inline;
+    position: relative;
+}
+
+.label {
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    left: 28%;
+    top: 80px;
+    font-family: "Droid Sans", "Helvetica Neue", "Nimbus Sans L", sans-serif;
+        font-weight: 100;
+
+    opacity: 0.2;
+}
+
+.label:hover {
+    opacity: 1.0;
+
+}
+
+.photo-array-holder {
+    position: absolute;
+    top: 170px;
+    left: 115px;
+    ssborder: 2px solid red;
+    width: 900px;
+    height: 500px;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+
+}
+
+.approval-photo {
+    position: absolute;
+    width: 468px;
+    height: 468px;
+    top: 182px;
+    left: 280px;
+}
+
+.fb-btn {
+    position: absolute;
+    top: 665px;
+    width: 192px;
+    height: 85px;
+}
+
+.back-btn {
+
+    left: 590px;
+
+}
+
+.next-btn {
+
+    left: 790px;
+
+}
+
+.reg-fields {
+    position: absolute;
+    xxborder: 1px solid #ffff00;
+    top: 270px;
+    left: 300px;
+}
+
+.reg-fields input {
+    xxborder: 1px solid #f5f5f5;
+    background-color: #147abe;
+    xxbackground-color: rgba(0.08, 0.48, 0.75, 0.5);
+    display: block;
+    width: 420px;
+    height: 50px;
+    margin-bottom: 25px;
+    font-size: 1.5em;
+    padding: 5px;
+    padding-left: 15px;
+
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #ffffff;
+}
+
+.spam-control {
+    margin-top: 40px;
+    line-height: 30px;
+}
+
+
+.spam-me {
+    color: white;
+    margin-left: 10px;
+    font-size: 1.1em;
+    font-family: carnival-lt;
+    padding-top: 5px;
+}
+/* COMMON */
+
+.modal-holder {
+    position: absolute;
+    top: 280px;
+    width: 924px;
+    height: 100px;
+    border: 5px solid white;
+    background-color: rgba(197, 29, 56, 1.0);
+    border-radius: 10px;
+    color: white;
+    margin-left: 50px;
+    margin-right: 50px;
+    z-index: 1000;
+    line-height: 100px;
+    font-size: 3em;
+    text-align: center;
+
+
+}
+
+.grey {
+    background-color: #c5c6c8;
+}
+
+.grey:hover {
+    background-color: #919294;
+
+}
+
+
+.op50 {
+    opacity: 0.50;
+}
+
+.op30 {
+    opacity: 0.30;
+}
+
+/* Animations */
+
+
+.fwdPageIn {
+    ssborder: 2px solid pink;
+    -webkit-animation: slideInFromRight 1s;
+        -webkit-backface-visibility: hidden;
+
+}
+
+.fwdPageOut {
+    ssborder: 2px solid #e45cff;
+    -webkit-animation: slideOutToLeft 1s;
+
+}
+
+.bkPageIn {
+    ssborder: 2px solid #add8e6;
+    -webkit-animation: slideInFromLeft 1s;
+
+}
+
+.bkPageOut {
+    ssborder: 2px solid blue;
+    -webkit-animation: slideOutToRight 1s;
+
+}
+
+.offscreen {
+    -webkit-transform: translate3d( 3000px, 0, 0 );
+    border: 5px solid hotpink;
+    opactiy: 0;
+
+}
+
+
+/* forward page turn, inbound */
+@-webkit-keyframes slideInFromRight {
+    from { -webkit-transform: translate3d( 3000px, 0, 0 ); opacity: 0;}
+    to   { -webkit-transform: translate3d( 0, 0, 0 ); opacity: 1}
+}
+
+/* backward page turn, outbound */
+@-webkit-keyframes slideOutToRight {
+    from { -webkit-transform: translate3d( 0, 0, 0 ); opacity: 1;}
+    to   { -webkit-transform: translate3d( 3000px, 0, 0 ); opacity: 0; }
+}
+
+/* backward page turn, inbound */
+@-webkit-keyframes slideInFromLeft {
+    from { -webkit-transform: translate3d( -3000px, 0, 0 ); opacity: 0;}
+    to   { -webkit-transform: translate3d( 0, 0, 0 ); opacity: 1;}
+}
+
+/* forward page turn, outbound */
+@-webkit-keyframes slideOutToLeft {
+    from { -webkit-transform: translate3d( 0, 0, 0 ); opacity: 1;}
+    to   { -webkit-transform: translate3d( -3000px, 0, 0 ); opacity: 0;}
+}
+
+@-webkit-keyframes popOpen {
+    from {  -webkit-transform: scale(0);}
+    to { -webkit-transform: scale(1);}
+ }
+
+@-webkit-keyframes popClose {
+    from {  -webkit-transform: scale(1);}
+    to { -webkit-transform: scale(0);}
+ }
+
+
+.animate-show {
+    opacity: 1;
+    display: block; !important;
+}
+
+.animate-show.ng-hide-add.ng-hide-add-active,
+.animate-show.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: all linear 0.25s;
+  transition: all linear 0.25s;
+}
+
+.animate-show.ng-hide {
+  opacity: 0;
+  -webkit-animation: popClose 0.25s;
+}
+
+.animate-show.ng-hide-remove {
+  opacity: 1;
+  -webkit-animation: popOpen 0.25s;
+}

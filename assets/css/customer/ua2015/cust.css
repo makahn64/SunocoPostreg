@@ -1,0 +1,303 @@
+@font-face {
+    font-family: carnival;
+    src: url('../../../fonts/customer/carnival/Nunito-Regular.ttf');
+}
+
+@font-face {
+    font-family: carnival-lt;
+    src: url('../../../fonts/customer/carnival/Nunito-Light.ttf');
+}
+
+
+
+
+body {
+    background-color: #303030;
+    //background-image: url(../img/customer/turboTax/background_blank.jpg);
+    margin: 0px;
+    font-weight: 300;
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
+    font-family: carnival-lt;
+    height: 100%;
+    overflow: hidden;
+
+}
+
+
+h1, h2, h3, h4 {
+    font-weight: 500;
+}
+
+input {
+border-width: 0 0 0 0;
+color: #656565;
+text-transform: uppercase;
+}
+
+
+
+.hidden-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+
+.label {
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    left: 28%;
+    top: 80px;
+    font-family: "Droid Sans", "Helvetica Neue", "Nimbus Sans L", sans-serif;
+        font-weight: 100;
+
+    opacity: 0.2;
+}
+
+.label:hover {
+    opacity: 1.0;
+
+}
+
+.photo-array-holder {
+    position: absolute;
+    top: 170px;
+    left: 115px;
+    border: 2px solid red;
+    width: 900px;
+    height: 500px;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+
+}
+
+/* This holds all the picker images */
+/* used for TT */
+.photo-array-holder-16x9 {
+    position: absolute;
+    top: 170px;
+    left: 100px;
+    xxborder: 2px solid greenyellow;
+    width: 900px;
+    height: 500px;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+
+}
+
+/* This holds all the picker images */
+.photo-array-holder-cust {
+    position: absolute;
+    top: 160px;
+    left: 80px;
+    aaborder: 2px solid greenyellow;
+    width: 900px;
+    height: 500px;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+
+}
+
+/* under armor size */
+.thumb-cust {
+    width: 278px;
+    height: 416px;
+    margin-top: 0px;
+    margin-bottom: 16px;
+    margin-right: 14px;
+    margin-left: 0px;
+    xxwebkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.15);
+    xx-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.15);
+    xxbox-shadow: 2px 2px 5px 0px rgba(0,0,0,0.15);
+    aaborder: 4px solid orange;
+
+}
+
+.approval-photo {
+    position: absolute;
+    width: 468px;
+    height: 468px;
+    top: 182px;
+    left: 280px;
+}
+
+.approval-photo-16x9 {
+    position: absolute;
+    width: 800px;
+    height: 450px;
+    top: 182px;
+    left: 110px;
+}
+
+/* this is a 2:3 aspect */
+.approval-photo-cust {
+
+    position: absolute;
+    width: 354px;
+    height: 530px;
+    top: 105px;
+    left: 318px;
+
+}
+
+.fb-btn {
+    position: absolute;
+    top: 665px;
+    width: 192px;
+    height: 85px;
+}
+
+
+
+.reg-fields {
+    position: absolute;
+    top: 170px;
+    color: #808080;
+    font-size: 1.2em;
+
+}
+
+.reg-left{
+    aaborder: 1px solid #ffff00;
+    left: 120px;
+}
+
+.reg-right{
+    aaborder: 1px solid #4d370a;
+    left: 580px;
+    top: 350px;
+}
+
+.reg-fields input {
+    xxborder: 1px solid #f5f5f5;
+    background-color: #858585;
+    xxbackground-color: rgba(0.08, 0.48, 0.75, 0.5);
+    display: block;
+    width: 420px;
+    height: 50px;
+    margin-bottom: 25px;
+    font-size: 1.5em;
+    padding: 5px;
+    padding-left: 15px;
+    color: white;
+
+}
+
+.bold_white{
+    color: white;
+    font-weight: 800;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: #ffffff;
+}
+
+.spam-control {
+    line-height: 30px;
+}
+
+
+.spam-me {
+    margin-left: 10px;
+    font-size: 0.8em;
+    font-family: carnival-lt;
+    padding-top: 5px;
+}
+/* COMMON */
+
+.modal-holder {
+    position: absolute;
+    top: 280px;
+    width: 924px;
+    height: 100px;
+    border: 5px solid white;
+    background-color: rgba(229, 0, 29, 1.0);
+    border-radius: 10px;
+    color: white;
+    margin-left: 50px;
+    margin-right: 50px;
+    z-index: 1000;
+    line-height: 100px;
+    font-size: 3em;
+    text-align: center;
+
+
+}
+
+.ad-seg-control {
+    color: white;
+    text-align: center;
+}
+
+.ad-seg {
+    padding: 5px;
+    background-color: #999999;
+    float: left;
+    width: 110px;
+    font-size: 0.9em;
+}
+
+.left-end, .ad-seg-left {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-right: 1px solid white;
+}
+
+.right-end, .ad-seg-right {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.inner, .ad-seg-inner {
+    border-right: 1px solid white;
+}
+
+.seg-selected, .ad-seg-selected {
+    background-color: rgba(229, 0, 29, 1.0);
+}
+
+
+
+
+.gap-above {
+    margin-top: 20px;
+}
+
+/* Toggle switch overrides. These override what comes in the stock CSS for the toggle. */
+
+.toggle-switch .switch-left {
+    color: #fff;
+    background: rgba(229, 0, 29, 1.0);
+    font-size: 0.9em;
+}
+
+.toggle-switch .knob {
+    background: white;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    background-color: #ffffff;
+    width: 34%;
+    z-index: 100;
+}
+
+.toggle-switch .switch-right {
+    color: #ffffff;
+    background: #999999;
+    font-size: 0.9em;
+
+
+}
+
+.no-border {
+    border: 0px;
+}
+
+input:focus::-webkit-input-placeholder
+{
+    color: transparent;
+}

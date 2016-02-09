@@ -1,0 +1,7 @@
+<div class="ad-seg-control">
+  <div ng-repeat="seg in segments" class="ad-seg"
+      ng-class="{ 'ad-seg-left': seg.left, 'ad-seg-inner': seg.inner, 'ad-seg-right': seg.right, 'ad-seg-selected': seg.selected}"
+      ng-click="segmentClicked($index)">
+        {{seg.label}}
+  </div>
+</div>

@@ -1,0 +1,202 @@
+@font-face {
+    font-family: carnival;
+    src: url('../fonts/customer/carnival/Nunito-Regular.ttf');
+}
+
+@font-face {
+    font-family: carnival-lt;
+    src: url('../fonts/customer/carnival/Nunito-Light.ttf');
+}
+
+
+
+
+body {
+    aabackground-color: #ffffff;
+    background-image: url(../img/customer/turboTax/background_blank.jpg);
+    margin: 0px;
+    font-weight: 300;
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
+    font-family: carnival-lt;
+    height: 100%;
+    overflow: hidden;
+
+}
+
+
+h1, h2, h3, h4 {
+    font-weight: 500;
+}
+
+input {
+border-width: 0 0 0 0;
+color: #656565;
+text-transform: uppercase;
+}
+
+
+
+.hidden-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+
+.label {
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    left: 28%;
+    top: 80px;
+    font-family: "Droid Sans", "Helvetica Neue", "Nimbus Sans L", sans-serif;
+        font-weight: 100;
+
+    opacity: 0.2;
+}
+
+.label:hover {
+    opacity: 1.0;
+
+}
+
+.photo-array-holder {
+    position: absolute;
+    top: 170px;
+    left: 115px;
+    ssborder: 2px solid red;
+    width: 900px;
+    height: 500px;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+
+}
+
+.photo-array-holder-16x9 {
+    position: absolute;
+    top: 170px;
+    left: 100px;
+    ssborder: 2px solid red;
+    width: 900px;
+    height: 500px;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+
+}
+
+
+.approval-photo {
+    position: absolute;
+    width: 468px;
+    height: 468px;
+    top: 182px;
+    left: 280px;
+}
+
+.approval-photo-16x9 {
+    position: absolute;
+    width: 800px;
+    height: 450px;
+    top: 182px;
+    left: 110px;
+}
+
+.fb-btn {
+    position: absolute;
+    top: 665px;
+    width: 192px;
+    height: 85px;
+}
+
+
+
+.reg-fields {
+    position: absolute;
+    xxborder: 1px solid #ffff00;
+    top: 310px;
+    left: 300px;
+}
+
+.reg-fields input {
+    xxborder: 1px solid #f5f5f5;
+    background-color: #ffffff;
+    xxbackground-color: rgba(0.08, 0.48, 0.75, 0.5);
+    display: block;
+    width: 420px;
+    height: 50px;
+    margin-bottom: 25px;
+    font-size: 1.5em;
+    padding: 5px;
+    padding-left: 15px;
+
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: #858585;
+}
+
+.spam-control {
+    margin-top: 40px;
+    line-height: 30px;
+}
+
+
+.spam-me {
+    color: #656565;
+    margin-left: 10px;
+    font-size: 1.1em;
+    font-family: carnival-lt;
+    padding-top: 5px;
+}
+/* COMMON */
+
+.modal-holder {
+    position: absolute;
+    top: 280px;
+    width: 924px;
+    height: 100px;
+    border: 5px solid white;
+    background-color: rgba(197, 29, 56, 1.0);
+    border-radius: 10px;
+    color: white;
+    margin-left: 50px;
+    margin-right: 50px;
+    z-index: 1000;
+    line-height: 100px;
+    font-size: 3em;
+    text-align: center;
+
+
+}
+
+
+/* Toggle switch overrides. These override what comes in the stock CSS for the toggle. */
+
+.toggle-switch .switch-left {
+    color: #fff;
+    background: #0084c4;
+}
+
+.toggle-switch .knob {
+    background: white;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    background-color: #ffffff;
+    width: 34%;
+    z-index: 100;
+}
+
+.toggle-switch .switch-right {
+    color: #ffffff;
+    background: #d73f31;
+
+}
+
+input:focus::-webkit-input-placeholder
+{
+    color: transparent;
+}

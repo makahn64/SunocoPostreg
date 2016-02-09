@@ -1,0 +1,31 @@
+<div>
+    <img class="page-background" ng-src="assets/img/customer/{{skin.customerFolder}}/background_sendphoto.jpg"/>
+
+    <div class="reg-fields reg-left">
+        <p ng-bind-html="guestModel.instructions"></p>
+        <input type="text" ng-model="guestModel.firstName" placeholder="{{guestModel.firstNamePlaceholder}}"/>
+        <input type="text" ng-model="guestModel.lastName" placeholder="{{guestModel.lastNamePlaceholder}}" />
+        <input type="text" ng-model="guestModel.email" placeholder="{{guestModel.emailPlaceholder}}" />
+        <input type="text" ng-model="guestModel.phoneNumber" placeholder="{{guestModel.phoneNumberPlaceholder}}" />
+        <input type="text" ng-model="guestModel.zipCode" placeholder="{{guestModel.zipCodePlaceholder}}" />
+
+
+    </div>
+
+</div>
+<div class="reg-fields reg-right">
+    <seg-control segments="genderPicker" selected="genderSelection" style="margin-bottom: 20px"></seg-control>
+
+    <div class="gap-above">&nbsp;</div>
+    <seg-control segments="agePicker" selected="ageSelection" style="margin-bottom: 20px"></seg-control>
+
+    <div class="gap-above">&nbsp;</div>
+
+    <div class="spam-control">
+        <toggle-switch class="no-border" ng-model="guestModel.spamMe" on-label="Yes" off-label="No"></toggle-switch>
+        <span class="spam-me">I want to receive more information.</span>
+    </div>
+</div>
+<img class="back-btn fb-btn" ng-src="assets/img/customer/{{skin.customerFolder}}/back.png" ng-click="back()" ng-class="{ op50: activePage==0}"/>
+<img class="next-btn fb-btn" ng-src="assets/img/customer/{{skin.customerFolder}}/next.png" ng-click="reg()"/>
+</div>

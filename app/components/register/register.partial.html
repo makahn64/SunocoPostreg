@@ -1,0 +1,29 @@
+<div class="surface-display" ng-show="ui.ready">
+    <img class="page-background" ng-src="assets/img/customer/{{skin.customerFolder}}/background_sendphoto.jpg"/>
+
+    <div class="centered-msg">{{ui.msg}}</div>
+
+    <div class="reg-input-holder">
+        <form name="regForm" style="display:inline">
+            <div class="right-inner-addon">
+                <span ng-show="ui.firstNameError" class="glyphicon glyphicon-remove"></span>
+                <input name="userFirstName" type="text" ng-model="user.firstName" value="{{user.firstName}}" placeholder="First Name [required]" required/>
+            </div>
+
+            <div class="right-inner-addon">
+                <span ng-show="ui.lastNameError" class="glyphicon glyphicon-remove"></span>
+                <input name="userLastName" type="text" ng-model="user.lastName" value="{{user.lastName}}" placeholder="Last Name [required]" required/>
+            </div>
+
+            <div class="right-inner-addon">
+                <span ng-show="regForm.userEmail.$error.email" class="glyphicon glyphicon-remove"></span>
+                <input name="userEmail" type="email" ng-model="user.email" value="{{user.email}}" placeholder="E-mail Address [required]" required/>
+            </div>
+        </form>
+
+        <button class="reg-btn" ng-click="back()" style="color:darkgrey">Back</button>
+        <button class="reg-btn" ng-disabled="!regForm.$valid" ng-click="submit()">Submit</button>
+
+    </div>
+
+</div>

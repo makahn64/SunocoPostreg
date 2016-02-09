@@ -1,0 +1,12 @@
+{
+  "main": "index.html",
+  "name": "Sunoco Celebration Cam",
+  "version": "0.0.1",
+  "description": "Register and pick your GIF!",
+  "nodejs": true,
+  "window": {
+    "title": "Sunoco Celebration Cam",
+    "width":1366,
+    "height":768
+  }
+}
