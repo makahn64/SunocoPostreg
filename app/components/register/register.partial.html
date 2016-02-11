@@ -1,11 +1,11 @@
 <div class="surface-display" ng-show="ui.ready">
     <img class="page-background" ng-src="assets/img/customer/{{skin.customerFolder}}/background_sendphoto.jpg"/>
 
-    <div class="centered-msg">{{ui.msg}}</div>
+    <div class="centered-msg" style="font-family: sunocobold, Courier;">{{ui.msg | uppercase}}</div>
 
-    <div class="reg-input-holder">
+    <div class="reg-input-holder" style="font-family: sunoco, Courier;">
         <form name="regForm" style="display:inline">
-            <div class="right-inner-addon">
+            <div class="right-inner-addon" >
                 <span ng-show="ui.firstNameError" class="glyphicon glyphicon-remove"></span>
                 <input name="userFirstName" type="text" ng-model="user.firstName" value="{{user.firstName}}" placeholder="First Name [required]" required/>
             </div>
@@ -21,8 +21,8 @@
             </div>
         </form>
 
-        <button class="reg-btn" ng-click="back()" style="color:darkgrey">Back</button>
-        <button class="reg-btn" ng-disabled="!regForm.$valid" ng-click="submit()">Submit</button>
+        <button class="reg-btn" ng-click="back()" style="color:darkgrey; font-family: sunocoblack, Courier;">BACK</button>
+        <button class="reg-btn" ng-disabled="!regForm.$valid" ng-click="submit()" style="font-family: sunocoblack, Courier;">SUBMIT</button>
 
     </div>
 

@@ -1,9 +1,9 @@
 <div class="surface-display">
     <img class="page-background" ng-src="assets/img/customer/{{skin.customerFolder}}/background_entercode.jpg"/>
 
-    <div class="centered-msg">{{ui.msg}}</div>
+    <div class="centered-msg" style="font-family: sunocobold, Courier;">{{ui.msg | uppercase}}</div>
 
-    <div class="centered-content">
+    <div class="centered-content" style="font-family: sunocoblack, Courier;">
         <numblock>{{code[6]}}</numblock>
         <numblock>{{code[5]}}</numblock>
         <numblock>{{code[4]}}</numblock>
@@ -14,7 +14,7 @@
     </div>
 
     <div ng-show="ui.showNumpad">
-        <div class="numpad">
+        <div class="numpad" style="font-family: sunocoblack, Courier;">
             <numrow>
                 <button class="numpad-btn" ng-click="enterDigit('9')">9</button>
                 <button class="numpad-btn" ng-click="enterDigit('8')">8</button>
@@ -38,24 +38,25 @@
             </numrow>
         </div>
 
-        <button class="left-btn" ng-click="skip()">Skip</button>
-        <button class="right-btn" ng-click="register()" ng-disabled="code.length < CODE_LENGTH">Register</button>
+        <button class="left-btn" ng-click="skip()" style="font-family: sunocoblack, Courier;">SKIP</button>
+        <button class="right-btn" ng-click="register()" ng-disabled="code.length < CODE_LENGTH"
+                style="font-family: sunocoblack, Courier;">REGISTER</button>
     </div>
 
     <div ng-show="ui.registered && !ui.showNumpad">
-        <div class="regbox">
+        <div class="regbox" style="font-family: sunoco, Courier;">
             Registration complete!<br>Is this {{user.firstName}}?
         </div>
-        <button class="left-btn" ng-click="regFailure()">No</button>
-        <button class="right-btn" ng-click="goToPath('/picker')">Yes</button>
+        <button class="left-btn" ng-click="regFailure()" style="font-family: sunocoblack, Courier;">NO</button>
+        <button class="right-btn" ng-click="goToPath('/picker')" style="font-family: sunocoblack, Courier;">Yes</button>
     </div>
 
     <div ng-show="ui.regFail && !ui.showNumpad">
-        <div class="regbox">
+        <div class="regbox" style="font-family: sunoco, Courier;" >
             Registration failed!<br>Please re-enter the code.
         </div>
-        <button class="left-btn" ng-click="goToPath('/picker')">Skip</button>
-        <button class="right-btn" ng-click="reEnter()">Re-Enter</button>
+        <button class="left-btn" ng-click="goToPath('/picker')" style="font-family: sunocoblack, Courier;">SKIP</button>
+        <button class="right-btn" ng-click="reEnter()" style="font-family: sunocoblack, Courier;">RE-ENTER</button>
     </div>
 
 </div>

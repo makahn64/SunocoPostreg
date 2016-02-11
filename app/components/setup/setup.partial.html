@@ -3,8 +3,17 @@
     <img class="page-background" ng-src="assets/img/customer/{{skin.customerFolder}}/background_entercode.jpg"/>
 
     <div class="centered-msg">
+        <h3>My IP Address is: {{ ui.myIp }}</h3>
         A8 Site Origin: <input class="cust-input" type="text" ng-model="settings.a8SiteOrigin"/><br>
-        <button class="reg-btn" ng-click="apply()">Apply</button>
-    </div>
+        <button class="reg-btn" ng-click="done()">Apply</button>
+        <br>
+        <div class="found-a8s" style="width: 50%; border: 2px solid yellow; border-radius: 5px; margin-left:auto; margin-right: auto; padding: 20px;">
+            <p>Found Activ8or Local Systems:</p>
+            <div ng-repeat="a8 in foundServers">
+                <button ng-click="use(a8)" style="color: black; margin-right: 20px;">SELECT</button>
+                <span> {{ a8 }}</span>
+            </div>
+        </div>
 
+    </div>
 </div>

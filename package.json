@@ -6,5 +6,8 @@
   "nodejs": true,
   "window": {
     "title": "Sunoco Celebration Cam"
+  },
+  "devDependencies": {
+    "nw-builder": "^2.2.0"
   }
 }

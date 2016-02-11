@@ -1,6 +1,6 @@
 
 var app = angular.module('regApp', ['ngRoute', 'ui.bootstrap', 'ngAnimate', 'ngToast', 'ngIdle',
-     'ngSanitize', 'ngTouch', 'appdWidgets', 'imageSpinner', 'toggle-switch', 'ngA8API2.service', 'userdefaults.service' ]);
+     'ngSanitize', 'ngTouch', 'appdWidgets', 'imageSpinner', 'toggle-switch', 'ngA8API2.service', 'userdefaults.service', 'nodeA8.service' ]);
 
 app.config(['IdleProvider', 'KeepaliveProvider', function(IdleProvider, KeepaliveProvider) {
     IdleProvider.idle(3*60);
