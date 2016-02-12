@@ -59,23 +59,33 @@ app.controller("pickerController", ["$scope", "ngToast", "$q", "$timeout", "$log
 
             $scope.ui.loading = true;
 
-            preload(media.getAll().slice(0, $scope.layout.numPicsInPage)).then(
-                function (arr) {
-                    $scope.pics = arr;
-                    $scope.slide.thinking = false;
-                    $scope.slide.fwdIn = true;
-                    $scope.ui.loading = false;
+            var recentMedia = media.getAll();
 
-                },
-                function() {
-                    $log.error("Error preloading media.");
+            if ( recentMedia.length > 0 ) {
+
+                preload( media.getAll().slice( 0, $scope.layout.numPicsInPage ) ).then(
+                    function ( arr ) {
+                        $scope.pics = arr;
+                        $scope.slide.thinking = false;
+                        $scope.slide.fwdIn = true;
+                        $scope.ui.loading = false;
+
+                    },
+                    function () {
+                        $log.error( "Error preloading media." );
+                    }
+                );
+
+                var pages = Math.ceil( media.getAll().length / $scope.layout.numPicsInPage );
+                for ( var i = 0; i < pages; i++ ) {
+                    $scope.pages.push( i );
                 }
-            );
-
-            var pages = Math.ceil(media.getAll().length / $scope.layout.numPicsInPage);
-            for (var i = 0; i < pages; i++) {
-                $scope.pages.push(i);
+            } else {
+                $rootScope.showPopupModal( "Hmmm...looks like there are no pics yet!" );
+                $timeout( $rootScope.hardReload, 5000 );
             }
+
+
         };
 
 
@@ -143,8 +153,23 @@ app.controller("pickerController", ["$scope", "ngToast", "$q", "$timeout", "$log
 
         // Called if listening for server refreshes
         function refreshPage() {
-            $scope.pics = media.getAll().slice($scope.activePage * $scope.layout.numPicsInPage,
-                $scope.activePage * $scope.layout.numPicsInPage + $scope.layout.numPicsInPage);
+
+            var recentMedia = media.getAll();
+
+            if (recentMedia.length>0){
+                $scope.pics = media.getAll().slice( $scope.activePage * $scope.layout.numPicsInPage,
+                    $scope.activePage * $scope.layout.numPicsInPage + $scope.layout.numPicsInPage );
+            } else {
+                $rootScope.showPopupModal("Hmmm...looks like there are no pics yet!");
+                $timeout($rootScope.hardReload, 5000);
+            }
+
+        }
+
+        function showRefreshError(){
+            $rootScope.showPopupModal("There's a problem getting images. Could be a bad network connection.");
+            $timeout($rootScope.hardReload, 5000);
+
         }
 
 
@@ -194,5 +219,7 @@ app.controller("pickerController", ["$scope", "ngToast", "$q", "$timeout", "$log
         $scope.buildPage();
 
         $scope.$on('refreshPics', refreshPage);
+        $scope.$on('refreshPicsError', showRefreshError);
+
 
     }]);

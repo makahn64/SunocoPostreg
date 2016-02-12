@@ -8,10 +8,14 @@
  *
  */
 
-app.controller("rootController", ["$rootScope", "$location", "$timeout", "$filter", "$interval", "$log", "media",
-    function ($rootScope, $location, $timeout, $filter, $interval, $log, media) {
+app.controller("rootController", ["$rootScope", "$location", "$timeout", "$filter", "$interval", "$log", "media", "nodeA8", "a8API",
+    function ($rootScope, $location, $timeout, $filter, $interval, $log, media, nodeA8, a8API ) {
 
         $log.info("rootController be loaded");
+        $log.info("My IP address is: "+ nodeA8.getMyIp());
+        $log.info( "My subnet address is: " + nodeA8.getMySubnet() );
+
+        //nodeA8.huntServers();
 
         // TODO: put in inactivity watcher
 
@@ -20,6 +24,7 @@ app.controller("rootController", ["$rootScope", "$location", "$timeout", "$filte
         $interval(media.load, MEDIA_RELOAD_INTERVAL);
 
         $rootScope.modal = {path: 'app/shared/appdWidgets/adToast.partial.html', message: "", show: false};
+        $rootScope.a8connection = false;
 
         $rootScope.showPopupModal = function (message, lifespan) {
             if (lifespan === undefined) {
@@ -56,5 +61,38 @@ app.controller("rootController", ["$rootScope", "$location", "$timeout", "$filte
             }, 5000);
 
         }
+
+        $rootScope.hardReload = function(){
+            $location.path( '/' );
+            //Assuming this forces hard reload which reloads the base IP
+            $window.location.reload();
+
+        }
+
+        function monitor() {
+
+            a8API.getResource('queue')
+                .then( function(res){
+
+                    $log.info("RootScope: A8 connection verified");
+                    $rootScope.$broadcast("A8_CONNECTED");
+                    $rootScope.a8connection = true;
+
+                })
+                .catch( function(err){
+
+                    $rootScope.showPopupModal("Connection to Activ8or Lost!");
+                    $log.error( "RootScope: A8 connection not available!" );
+                    $rootScope.$broadcast( "A8_CONNECTION_FAIL" );
+                    $rootScope.a8connection = false;
+
+
+                })
+
+            $timeout(monitor, 15000);
+
+        }
+
+        monitor();
 
     }]);

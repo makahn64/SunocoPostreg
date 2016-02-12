@@ -8,5 +8,9 @@
     "title": "Sunoco Celebration Cam",
     "toolbar": false,
     "fullscreen": true
+  },
+  "devDependencies": {
+    "nw-builder": "^2.2.0"
+
   }
 }

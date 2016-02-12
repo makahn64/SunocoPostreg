@@ -29,6 +29,8 @@ app.factory('media',
                 },
                 function (err) {
                     $log.error("Error retrieving photos: " + err);
+                    $rootScope.$broadcast( 'refreshPicsError' );
+
                 });
 
         };
