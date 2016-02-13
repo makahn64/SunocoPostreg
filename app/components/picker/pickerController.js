@@ -29,9 +29,6 @@ app.controller("pickerController", ["$scope", "ngToast", "$q", "$timeout", "$log
 
         $scope.ui = { loading: true };
 
-        var preloaded = [];
-
-
         function slideOutToLeft() {
             $scope.slide.bkOut = true;
             $scope.slide.bkIn = false;
