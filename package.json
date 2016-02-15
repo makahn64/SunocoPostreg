@@ -1,6 +1,6 @@
 {
   "main": "index.html",
-  "name": "Sunoco Celebration Cam",
+  "name": "Sunococam",
   "version": "0.0.1",
   "description": "Register and pick your GIF!",
   "nodejs": true,
@@ -9,8 +9,11 @@
     "toolbar": false,
     "fullscreen": true
   },
+  "chromium-args": "--disable-pinch",
   "devDependencies": {
     "nw-builder": "^2.2.0"
-
+  },
+  "dependencies": {
+    "ip": "^1.1.0"
   }
 }
