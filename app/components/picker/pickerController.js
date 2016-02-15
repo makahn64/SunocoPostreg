@@ -29,9 +29,6 @@ app.controller("pickerController", ["$scope", "ngToast", "$q", "$timeout", "$log
 
         $scope.ui = { loading: true };
 
-        var preloaded = [];
-
-
         function slideOutToLeft() {
             $scope.slide.bkOut = true;
             $scope.slide.bkIn = false;
@@ -131,6 +128,7 @@ app.controller("pickerController", ["$scope", "ngToast", "$q", "$timeout", "$log
         function turnPage(fwd) {
 
             $timeout(function () {
+                $scope.ui.loading = true;
                 preload(media.getAll().slice($scope.activePage * $scope.layout.numPicsInPage,
                     $scope.activePage * $scope.layout.numPicsInPage + $scope.layout.numPicsInPage)).then(
                     function (arr) {
@@ -138,6 +136,8 @@ app.controller("pickerController", ["$scope", "ngToast", "$q", "$timeout", "$log
                         $scope.slide.bkOut = false;
                         $scope.slide.fwdOut = false;
                         $scope.slide.thinking = false;
+
+                        $scope.ui.loading = false;
 
                         if (fwd) {
                             $scope.slide.bkIn = false;
