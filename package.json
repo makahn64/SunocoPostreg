@@ -7,7 +7,7 @@
   "window": {
     "title": "Sunoco Celebration Cam",
     "toolbar": false,
-    "fullscreen": false
+    "fullscreen": true
   },
   "chromium-args": "--disable-pinch",
   "devDependencies": {
