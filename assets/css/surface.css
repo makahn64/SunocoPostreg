@@ -266,6 +266,17 @@ numrow {
     color:#ff0000;
 }
 
+.blank-inner-addon {
+    border:none;
+    border-radius:4px;
+    width:500px;
+    background-color:transparent;
+    margin:15px;
+    padding:0;
+    position:relative;
+    display:inline-block;
+}
+
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color:dimgrey;

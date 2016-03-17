@@ -6,36 +6,38 @@ app.controller( "regController", [ "$rootScope", "$scope", "$log", "ngToast", "$
         $scope.ui = {
             ready:          false,
             msg:            "",
-            emailError:     false,
             firstNameError: false,
             lastNameError:  false
         };
 
+        $scope.emails = [];
+
         $scope.user = regService.getUser();
 
         if ( !$scope.user ) {
+            $scope.emails[0] = "";
             $scope.ui.msg = "Enter your information:";
             $scope.ui.ready = true;
         }
         else {
             $scope.ui.msg = "Confirm your information:";
+            $scope.emails[0] = $scope.user.email;
             $scope.ui.ready = true;
         }
 
-        function createGuest() {
+        function createGuest(email) {
 
             var guestObj = {
                 firstName:   $scope.user.firstName,
                 lastName:    $scope.user.lastName,
-                email:       $scope.user.email,
-            }
+                email:       email
+            };
 
             if ($scope.user.badgeId)
                 guestObj.address = { badgeId: $scope.user.badgeId };
 
             //Gets or Creates
             return a8API.registerGuest( guestObj );
-
         }
 
 
@@ -47,11 +49,30 @@ app.controller( "regController", [ "$rootScope", "$scope", "$log", "ngToast", "$
                 experienceName: "Sunoco Celebration Cam",
                 completed: true
             } );
+        }
 
+        function createGuestAndExperience(email) {
+            return createGuest(email)
+                .then( createExperience )
+                .then( function(res){
+                    $log.info("Experience created!");
+                    var expId = res.data.id;
+                    var mediaId = res.data.media[ 0 ].id;
+                    //TODO this is a hokey way of indicating a link to another experience
+                    a8API.updateMedia(mediaId, { remoteId: expId } )
+                        .then( function(){
+                            $log.info("Media updated.");
+                        })
+                        .catch( function(){
+                            $log.info( "Media NOT updated, this is a problem." );
+                        });
+                })
+                .catch( function(){
+                    $log.error( "Failed to create guest!" );
+                });
         }
 
         function validate() {
-            $scope.ui.emailError = !$scope.regForm.userEmail.$valid;
             $scope.ui.firstNameError = !$scope.regForm.userFirstName.$valid;
             $scope.ui.lastNameError = !$scope.regForm.userLastName.$valid;
 
@@ -68,43 +89,43 @@ app.controller( "regController", [ "$rootScope", "$scope", "$log", "ngToast", "$
                 $scope.ui.lastNameError = false;
         } );
 
-        $scope.$watch( "user.email", function ( val ) {
-            if ( val )
-                $scope.ui.emailError = false;
-        } );
+        $scope.updateEmails = function(num) {
+
+            if (num == 0) {  // adding an email
+                $scope.emails.push("");
+
+            } else {        // removing an email
+                $scope.emails.splice(num, 1);
+                for (var i = 0; i < $scope.emails.length; i++) {
+                    console.log(i + ": " + $scope.emails[i]);
+                }
+            }
+        };
 
         $scope.submit = function () {
             if ( validate() ) {
 
+                var promises = [];
+
                 $log.info( "Submitting user data for " + $scope.user.firstName );
 
-                createGuest()
-                    .then( createExperience )
-                    .then( function(res){
-                        $log.info("Experience created!");
-                        var expId = res.data.id;
-                        var mediaId = res.data.media[ 0 ].id;
-                        //TODO this is a hokey way of indicating a link to another experience
-                        a8API.updateMedia(mediaId, { remoteId: expId } )
-                            .then( function(data){
-                                $log.info("Media updated.");
-                            })
-                            .catch( function(err){
-                                $log.info( "Media NOT updated, this is a problem." );
-                            });
-                        regService.clearUser();
-                        $location.path( '/endslate' );
+                $scope.emails.forEach(function(email) {
+                    $log.info(email);
+                    if (email) {
+                        promises.push(createGuestAndExperience(email));
+                    }
+                });
+
+                $q.all(promises)
+                    .then(function () {
+                        $log.info("Done creating experiences!");
+                        $location.path('/endslate');
                     })
-                    .catch( function(err){
-
-                        $log.error( "Failed to create guest!" );
-                        $location.path( '/endslate' );
-
+                    .catch(function() {
+                        $log.error("Error creating experiences");
                     });
-
             }
         };
-
 
         $scope.back = function () {
             $location.path( '/approve' );
