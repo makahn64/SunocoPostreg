@@ -3,6 +3,8 @@ app.controller( "regController", [ "$rootScope", "$scope", "$log", "ngToast", "$
 
         $log.info( "regController be loaded." );
 
+        // TODO: do something with the additional emails
+
         $scope.ui = {
             ready:          false,
             msg:            "",
@@ -15,13 +17,13 @@ app.controller( "regController", [ "$rootScope", "$scope", "$log", "ngToast", "$
         $scope.user = regService.getUser();
 
         if ( !$scope.user ) {
-            $scope.emails[0] = "";
+            $scope.emails[0] = {email: ""};
             $scope.ui.msg = "Enter your information:";
             $scope.ui.ready = true;
         }
         else {
             $scope.ui.msg = "Confirm your information:";
-            $scope.emails[0] = $scope.user.email;
+            $scope.emails[0] = {email: $scope.user.email};
             $scope.ui.ready = true;
         }
 
@@ -91,15 +93,21 @@ app.controller( "regController", [ "$rootScope", "$scope", "$log", "ngToast", "$
 
         $scope.updateEmails = function(num) {
 
-            if (num == 0) {  // adding an email
-                $scope.emails.push("");
+            $timeout(function() {
+                    if (num == 0) {  // adding an email
+                        $scope.emails.push({email: ""});
 
-            } else {        // removing an email
-                $scope.emails.splice(num, 1);
-                for (var i = 0; i < $scope.emails.length; i++) {
-                    console.log(i + ": " + $scope.emails[i]);
-                }
-            }
+                    } else {        // removing an email
+                        $scope.emails.splice(num, 1);
+                        for (var i = 0; i < $scope.emails.length; i++) {
+                            console.log(i + ": " + $scope.emails[i].email);
+                        }
+                    }
+                $scope.emails.forEach(function(obj) {
+                    $log.info(obj.email);
+
+                });
+                }, 0);
         };
 
         $scope.submit = function () {
@@ -109,10 +117,10 @@ app.controller( "regController", [ "$rootScope", "$scope", "$log", "ngToast", "$
 
                 $log.info( "Submitting user data for " + $scope.user.firstName );
 
-                $scope.emails.forEach(function(email) {
-                    $log.info(email);
-                    if (email) {
-                        promises.push(createGuestAndExperience(email));
+                $scope.emails.forEach(function(obj) {
+                    $log.info(obj.email);
+                    if (obj.email) {
+                        promises.push(createGuestAndExperience(obj.email));
                     }
                 });
 

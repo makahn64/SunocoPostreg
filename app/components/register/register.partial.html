@@ -3,7 +3,8 @@
 
     <div class="centered-msg" style="font-family: sunocobold, Courier;">{{ui.msg | uppercase}}</div>
 
-    <div class="reg-input-holder" style="font-family: sunoco, Courier;">
+    <div class="reg-input-holder"
+         style="font-family: sunoco, Courier;height:670px;overflow-y:scroll;">
         <form name="regForm" style="display:inline">
 
             <div class="right-inner-addon">
@@ -20,77 +21,55 @@
 
             <br>
 
-            <button class="char-btn" ng-click="updateEmails(0)" ng-disabled="emails.length >= 5"
-                    style="color:white;position:absolute;left:125px;">
-                <span class="glyphicon glyphicon-plus"></span>
-            </button>
-            <div class="right-inner-addon" style="left:-5px">
+            <div class="right-inner-addon">
                 <span ng-show="regForm.userEmail0.$error.email" class="glyphicon glyphicon-remove"></span>
-                <input name="userEmail0" type="email" ng-model="emails[0]" value="{{emails[0]}}"
+                <input name="userEmail0" type="email" ng-model="emails[0].email" value="{{emails[0].email}}"
                        placeholder="E-mail Address [required]" required/>
             </div>
 
 
-            <button class="reg-btn" ng-click="back()" style="color:darkgrey; font-family: sunocoblack, Courier;">BACK
-            </button>
-            <button class="reg-btn" ng-disabled="!regForm.$valid" ng-click="submit()"
-                    style="font-family: sunocoblack, Courier;">SUBMIT
-            </button>
+            <span ng-show="emails.length==1">
+                <button class="char-btn" ng-click="updateEmails(0)">+</button>
+                <span style="color:white; font-size:20px">Add E-mail Address</span>
+                <div class="blank-inner-addon" style="width:248px"></div>
+            </span>
+
+            <div class="blank-inner-addon" style="width:500px" ng-show="emails.length!=1"></div>
 
             <br>
 
-            <div ng-show="emails.length>=2">
-                <button class="char-btn" ng-click="updateEmails(1)" style="color:white;position:absolute;left:125px;">
-                    <span class="glyphicon glyphicon-minus"></span>
-                </button>
-                <div class="right-inner-addon" style="left:-5px">
+            <div ng-repeat="obj in emails track by $index" ng-show="$index > 0">
+
+                <div class="right-inner-addon">
                     <span ng-show="regForm.userEmail1.$error.email" class="glyphicon glyphicon-remove"></span>
-                    <input name="userEmail1" ng-model="emails[1]" value="{{emails[1]}}"
-                           placeholder="Additional E-mail Address"/>
+                    <input name="userEmail1" ng-model="obj.email" value="{{obj.email}}"
+                           placeholder="E-mail Address"/>
                 </div>
-                <div class="blank-inner-addon"></div>
-            </div>
 
+                <!--Removes the email it is associated with
+                <span ng-show="emails.length!=$index+1">
+                    <button class="char-btn" style="background:transparent;color:white;width:50px"
+                            ng-click="updateEmails($index)">-</button>
+                    <div class="blank-inner-addon" style="width:423px"></div>
+                </span>-->
 
-            <div ng-show="emails.length>=3">
-                <button class="char-btn" ng-click="updateEmails(2)" style="color:white;position:absolute;left:125px;">
-                    <span class="glyphicon glyphicon-minus"></span>
-                </button>
-                <div class="right-inner-addon" style="left:-5px">
-                    <span ng-show="regForm.userEmail2.$error.email" class="glyphicon glyphicon-remove"></span>
-                    <input name="userEmail2"  ng-model="emails[2]" value="{{emails[2]}}"
-                           placeholder="Additional E-mail Address"/>
-                </div>
-                <div class="blank-inner-addon"></div>
-            </div>
+                <span ng-show="emails.length!=$index+1">
+                    <div class="blank-inner-addon" style="width:500px"></div>
+                </span>
 
-
-            <div ng-show="emails.length>=4">
-                <button class="char-btn" ng-click="updateEmails(3)" style="color:white;position:absolute;left:125px;">
-                    <span class="glyphicon glyphicon-minus"></span>
-                </button>
-                <div class="right-inner-addon" style="left:-5px">
-                    <span ng-show="regForm.userEmail3.$error.email" class="glyphicon glyphicon-remove"></span>
-                    <input name="userEmail3" ng-model="emails[3]" value="{{emails[3]}}"
-                           placeholder="Additional E-mail Address"/>
-                </div>
-                <div class="blank-inner-addon"></div>
-            </div>
-
-
-            <div ng-show="emails.length>=5">
-                <button class="char-btn" ng-click="updateEmails(4)" style="color:white;position:absolute;left:125px;">
-                    <span class="glyphicon glyphicon-minus"></span>
-                </button>
-                <div class="right-inner-addon" style="left:-5px">
-                    <span ng-show="regForm.userEmail4.$error.email" class="glyphicon glyphicon-remove"></span>
-                    <input name="userEmail4" ng-model="emails[4]" value="{{emails[4]}}"
-                           placeholder="Additional E-mail Address"/>
-                </div>
-                <div class="blank-inner-addon"></div>
+                <span ng-show="emails.length==$index+1">
+                    <button class="char-btn" ng-click="updateEmails(0)">+</button>
+                    <span style="color:white; font-size:20px">Add E-mail Address</span>
+                    <div class="blank-inner-addon" style="width:248px"></div>
+                </span>
             </div>
 
         </form>
+
+        <div class="centered-div" style="padding-bottom:100px">
+            <button class="reg-btn" ng-click="back()" style="color:darkgrey; font-family: sunocoblack, Courier;">BACK</button>
+            <button class="reg-btn" ng-disabled="!regForm.$valid" ng-click="submit()" style="font-family: sunocoblack, Courier;">SUBMIT</button>
+        </div>
 
     </div>
 

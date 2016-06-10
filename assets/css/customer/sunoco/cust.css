@@ -161,12 +161,17 @@ body {
 }
 
 .char-btn {
-    background:transparent;
-    border:none;
-    font-family:sunocoblack, Courier;
-    font-size:30px;
-    padding:15px;
+    background:white;
+    font-family:Courier;
+    font-size:45px;
+    height: 60px;
+    width: 60px;
     margin:15px;
+    top:10px;
+    border:none;
+    border-radius: 100%;
+    text-align: center;
+    color:#FF0000;
 }
 
 .char-btn:active {
