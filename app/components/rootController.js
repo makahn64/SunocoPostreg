@@ -9,7 +9,8 @@
  */
 
 app.controller("rootController", ["$rootScope", "$location", "$timeout", "$filter", "$interval", "$log", "media", "nodeA8", "a8API",
-    function ($rootScope, $location, $timeout, $filter, $interval, $log, media, nodeA8, a8API ) {
+    "$window",
+    function ($rootScope, $location, $timeout, $filter, $interval, $log, media, nodeA8, a8API, $window ) {
 
         $log.info("rootController be loaded");
         $log.info("My IP address is: "+ nodeA8.getMyIp());
