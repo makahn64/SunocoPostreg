@@ -8,6 +8,7 @@ app.controller("enterCodeController", ["$rootScope", "$scope", "$q", "$timeout",
         var setupCode = "0000123";
 
         //$rootScope.showPopupModal("Yo Dude!", 5000);
+        regService.clearUser();
 
         $scope.ui = {
             msg: "If you are a Daytona Rewards member, enter your 7-digit code:",
