@@ -53,6 +53,12 @@ app.run(function($rootScope, $log, $http, $location, Idle, media, a8API, userDef
 });
 
 
+app.directive('hiddenHome', function(){
+
+
+
+})
+
 // some convenience methods for arrays
 
 Array.prototype.clear = function() {

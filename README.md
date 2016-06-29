@@ -28,3 +28,5 @@ Setup
 With the app running on site, enter a code of `0000123` on the code screen then tap the SKIP button (*not* the ENTER
 button). This takes you to a screen where you can enter the IP address and port of the local Activ8or instance running.
 The app also auto-detects Activ8ors on the network to help you out a bit.
+
+Test server is at: 104.236.168.199:1337

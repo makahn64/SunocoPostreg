@@ -1,5 +1,6 @@
 <div class="surface-display" ng-show="ui.ready">
     <img class="page-background" ng-src="assets/img/customer/{{skin.customerFolder}}/background_sendphoto.jpg"/>
+    <hidden-home></hidden-home>
 
     <div class="centered-msg" style="font-family: sunocobold, Courier;">{{ui.msg | uppercase}}</div>
 
@@ -43,7 +44,7 @@
                 <div class="right-inner-addon">
                     <span ng-show="regForm.userEmail1.$error.email" class="glyphicon glyphicon-remove"></span>
                     <input name="userEmail1" ng-model="obj.email" value="{{obj.email}}"
-                           placeholder="E-mail Address"/>
+                           placeholder="E-mail Address" type="email"/>
                 </div>
 
                 <!--Removes the email it is associated with

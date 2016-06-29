@@ -23,3 +23,9 @@
     opacity: 1.0;
 
 }
+
+.hidden-home {
+    position: absolute;
+    top: 40px;
+    right: 120px;
+}
