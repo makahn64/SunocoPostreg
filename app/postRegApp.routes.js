@@ -6,7 +6,8 @@ app.config([ "$routeProvider", function($routeProvider) {
 
         // route for the home page
         .when('/', {
-            templateUrl: 'app/components/tapToStart/tapToStart.partial.html'
+            templateUrl: 'app/components/tapToStart/tapToStart.partial.html',
+            controller: 'tapToStartController'
         })
 
         .when('/enterCode', {
