@@ -1,9 +1,11 @@
 <div class="surface-display">
     <img class="page-background" ng-src="assets/img/customer/{{skin.customerFolder}}/background_taptobegin.jpg"/>
 
-    <div style="width:300px; height:300px; position:absolute; top:0; left:0" ng-click="upperLeftTap()"></div>
-
     <div class="centered-div">
+
+    	<div ng-click="upperLeftTap()" style="width:300px; height:300px; position:absolute; top:0; left:0" >
+    	</div>
+
         <button class="centered-btn" ng-click="goToPath('/picker')" style="font-family: sunocoblack, Courier;">
             <div style="padding-bottom: 12px">TOUCH TO BEGIN</div>
         </button>

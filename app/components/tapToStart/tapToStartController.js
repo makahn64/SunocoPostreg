@@ -1,4 +1,4 @@
-app.controller("tapToStartController",[ "$scope", "$location", function($scope, media, $location) {
+app.controller("tapToStartController",[ "$scope", "$location", function($scope, $location) {
 
     console.log("tapToStartController loaded");
 
@@ -21,6 +21,6 @@ app.controller("tapToStartController",[ "$scope", "$location", function($scope, 
 
     		taps.shift();
     		taps.push(new Date().getTime());
-    	}
+    	;}
     }
 }]);
